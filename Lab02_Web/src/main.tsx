@@ -50,13 +50,11 @@ const App = () => {
   );
 };
 
-// Mount app and setup re-render
-const root = document.getElementById('app');
-if (root) {
-  const render = () => {
-    mount(<App />, root);
-  };
-  
-  (window as any).__rerender = render;
-  render();
+const container = document.getElementById('root');
+
+if (container) {
+  // Gắn (mount) component Dashboard mới
+  mount(<Dashboard />, container);
+} else {
+  console.error('Không tìm thấy phần tử root (#root) để gắn ứng dụng.');
 }
